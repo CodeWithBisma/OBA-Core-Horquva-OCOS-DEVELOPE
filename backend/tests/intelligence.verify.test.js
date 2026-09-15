@@ -18,6 +18,13 @@
  * dependency chains rather than single, dependency-free modules.
  */
 
+// domain/dataset.js (pulled in transitively via '../brain') constructs the
+// Supabase client at module load time and throws if SUPABASE_URL/KEY are
+// unset. This test never calls it — it only needs requiring '../brain' to
+// not crash before it ever reaches the fixture graph below.
+process.env.SUPABASE_URL = process.env.SUPABASE_URL || 'https://placeholder.supabase.co'
+process.env.SUPABASE_KEY = process.env.SUPABASE_KEY || 'placeholder-key'
+
 const brain = require('../brain')
 const { buildTestGraph } = require('./fixtures/graph')
 

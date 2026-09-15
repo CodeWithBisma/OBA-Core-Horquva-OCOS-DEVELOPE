@@ -14,7 +14,10 @@
  *   3. `owns` edges carried no provenance, leaving D1 nothing to rank on.
  */
 
-require('../supabase') // loads backend/.env
+// Load backend/.env without constructing the Supabase client yet — supabase.js
+// throws synchronously when SUPABASE_URL/KEY are unset, which would crash this
+// file before it reaches the skip check below instead of skipping cleanly.
+require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') })
 
 let passed = 0
 let failed = 0
