@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-18T10:47:48.143Z",
-  "pipeline_success_rate": 44,
+  "generated_at": "2026-09-19T10:31:45.015Z",
+  "pipeline_success_rate": 42,
   "pipeline_runs_sampled": 50,
   "pipeline_failures_sampled": 13,
   "open_findings": 0,
